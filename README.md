@@ -24,6 +24,8 @@
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/2e6f64b1-ff1b-4e05-8d6c-328ae4422ed4" height="350">
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/2e6ffc15-27cc-4616-b19e-aaeab5f210be" height="350">
 <BR>
+![Running Devices - LOL_lain 2023-11-22 19-58-11](https://github.com/JeongYoun-24/LoL_And/assets/126854252/5ffd3125-34be-472d-a5ad-36d52c6028a7)
+
 
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_drawer"
