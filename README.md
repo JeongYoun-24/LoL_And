@@ -27,6 +27,18 @@
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/5ffd3125-34be-472d-a5ad-36d52c6028a7" height="350">
 
 <BR>
+
+<BR>
+<UL>
+ <LI>기본 디폴트로 잡혀 있는 메인 페이지입니다. 
+     메인 페이지는 챔피언 리스트를 리사이클뷰 어댑터를 통해 값을 전달하여 뿌려주고있습니다. 
+     메인메이지 네비게이션 바를 만들어서 여러 액티비티 연결을 할수있도록 하였습니다.
+ </LI>
+</UL>
+<BR>
+
+
+
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_drawer"
     android:background="@color/blu"
@@ -215,7 +227,83 @@
 </androidx.drawerlayout.widget.DrawerLayout>
 <BR>
 #메인액티비티 코드 
+<코드가 길어 짧게 요약 >
+        // 라이엇 url api 에서 이미지 받아오기
+        val Imgurl = "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/button-search-hover.png"
+        Glide.with(this).load(Imgurl).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.seletImg)
 
+//VERTICAL 세로 방향  HORIZONTAL 가로방향
+        binding.rvProfile.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        binding.rvProfile.setHasFixedSize(true)
+        binding.rvProfile.adapter = ProfileAdapter(profileList)
 
+       // 네이게이션 이벤트
+        binding.btnNavi.setOnClickListener(){
+            binding.layoutDrawer.openDrawer(GravityCompat.START) // START : left  END : right
+        }
+        binding.navieView.setNavigationItemSelectedListener(this)  
 
+// 네이게이션 메뉴 아이템 클릭시 수행 메서드
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        val intent = Intent(this, LoginActivity::class.java) // 로그인 액티비티
+        val intent2 = Intent(this, MainActivity::class.java) // 메인 액티비티
+        val intent3 = Intent(this, My_Champion::class.java) // 챔피언 스펠 액티비티
+        val intent4 = Intent(this, My_RuneActivity::class.java) // 챔피언 룬 액티비티
+        val intent5 = Intent(this, My_ItemListActivity::class.java) // 챔피언 룬 액티비티
+        when(item.itemId){
+            R.id.login -> startActivity(intent)
+            R.id.champion -> startActivity(intent2)
+            R.id.championSpell -> startActivity(intent3)
+            R.id.championRune -> startActivity(intent4)
+            R.id.championItem -> startActivity(intent5)
+        }
+        binding.layoutDrawer.closeDrawers() //네이게이션 닫기
+        return false
+    }
+        
+#어댑터 코드 
+<BR>
+class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapter<ProfileAdapter.CustemViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustemViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_lest, parent, false)  // 연결될 액티비티
 
+        return CustemViewHolder(view).apply {
+            val intent = Intent(parent.context, LoL_DetailActivity::class.java)
+
+            val gender = itemView.findViewById<ImageView>(R.id.iv_profile) // 성별
+
+            // 리사이클 클릭시 이벤트
+            itemView.setOnClickListener {
+                val curPos : Int = adapterPosition // 현재 포지션
+                val profile : Profiles = profileList.get(curPos) // 객체형태로 전달
+
+                val bitmap = (gender.drawable as BitmapDrawable).bitmap
+
+                intent.putExtra("gender",bitmap)
+                intent.putExtra("id",profile.id)
+                intent.putExtra("name",profile.name)
+                intent.putExtra("lain",profile.lain)
+                intent.putExtra("detail",profile.detail)
+
+                ContextCompat.startActivity(parent.context,intent,null)
+            }
+        }
+    }
+    override fun getItemCount(): Int {
+        return profileList.size
+    }
+
+    // 실제 연결해주는 메서드
+    override fun onBindViewHolder(holder: CustemViewHolder, position: Int) {
+        holder.gender.setImageResource(profileList.get(position).gender)
+        holder.name.text = profileList.get(position).name
+        holder.lain.text = profileList.get(position).lain
+    }
+    class CustemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val gender = itemView.findViewById<ImageView>(R.id.iv_profile) // 이미지
+        val name = itemView.findViewById<TextView>(R.id.tv_name)        // 이름
+        val lain = itemView.findViewById<TextView>(R.id.tv_lain)        // 라인
+    }
+
+}
+<BR>
