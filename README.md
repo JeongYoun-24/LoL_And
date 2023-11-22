@@ -220,9 +220,9 @@
         android:layout_gravity="start"
         app:itemTextColor="@color/yeil"
         app:menu="@menu/nav_menu" />
-
 </androidx.drawerlayout.widget.DrawerLayout>
-<BR>
+
+</BR>
 #메인액티비티 코드 
 <코드가 길어 짧게 요약 >
 <BR>
