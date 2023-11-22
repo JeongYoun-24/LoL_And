@@ -1,28 +1,16 @@
 package com.example.lol_lain.adpter
 
 import android.content.Intent
-import android.graphics.drawable.BitmapDrawable
-import android.inputmethodservice.Keyboard.Row
-import android.provider.ContactsContract.Data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.lol_lain.LoL_DetailActivity
 import com.example.lol_lain.R
-import com.example.lol_lain.data.ChampionDate
-import com.example.lol_lain.data.RuneData
 import com.example.lol_lain.data.SpeilData
-import com.example.lol_lain.databinding.ItemLest2Binding
-import com.example.lol_lain.databinding.ItemLestBinding
-import com.example.my_api2.Profiles
 
 
 class ChampionAdapters(val profileList : ArrayList<SpeilData>) : RecyclerView.Adapter<ChampionAdapters.CustemViewHolder>() {
@@ -57,7 +45,7 @@ class ChampionAdapters(val profileList : ArrayList<SpeilData>) : RecyclerView.Ad
     override fun onBindViewHolder(holder: ChampionAdapters.CustemViewHolder, position: Int) {
 
 //        holder.speilImg.setImageResource(profileList.get(position).img)
-        holder.speilImg.setImageResource(profileList.get(position).img)
+//        holder.speilImg.setImageResource(profileList.get(position).img)
         holder.id.text = profileList.get(position).id
         holder.name.text = profileList.get(position).name
         holder.description.text = profileList.get(position).description

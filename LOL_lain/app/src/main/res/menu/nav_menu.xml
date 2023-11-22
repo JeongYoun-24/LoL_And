@@ -8,19 +8,19 @@
             android:title="로그인"/>
 
         <item android:id="@+id/champion"
-            android:icon="@drawable/baseline_email_24"
+            android:icon="@drawable/sum"
             android:title="챔피언 정보"/>
 
         <item android:id="@+id/championSpell"
-            android:icon="@drawable/baseline_send_24"
+            android:icon="@drawable/img_1"
             android:title="챔피언 스펠"/>
 
         <item android:id="@+id/championRune"
-            android:icon="@drawable/baseline_send_24"
+            android:icon="@drawable/img_2"
             android:title="챔피언 룬"/>
 
         <item android:id="@+id/championItem"
-            android:icon="@drawable/baseline_send_24"
+            android:icon="@drawable/img"
             android:title="챔피언 아이템"/>
 
 

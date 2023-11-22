@@ -1,4 +1,4 @@
-package com.example.my_api2
+package com.example.lol_lain.adpter
 
 
 
@@ -11,15 +11,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.lol_lain.LoL_DetailActivity
 import com.example.lol_lain.R
+import com.example.lol_lain.data.Profiles
 
 
 class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapter<ProfileAdapter.CustemViewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileAdapter.CustemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_lest, parent, false)  // 연결될 액티비티
 
         return CustemViewHolder(view).apply {
@@ -53,7 +53,7 @@ class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapt
     }
 
     // 실제 연결해주는 메서드
-    override fun onBindViewHolder(holder: ProfileAdapter.CustemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CustemViewHolder, position: Int) {
         holder.gender.setImageResource(profileList.get(position).gender)
         holder.name.text = profileList.get(position).name
         holder.lain.text = profileList.get(position).lain
@@ -69,7 +69,6 @@ class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapt
 //
 //            ContextCompat.startActivity(holder.gender.context,intent,null)
 //        }
-
 
     }
 

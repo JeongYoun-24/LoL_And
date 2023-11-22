@@ -6,9 +6,9 @@
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="341dp"
-        android:layout_height="241dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="334dp"
+        android:layout_height="403dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
@@ -20,9 +20,11 @@
         app:layout_constraintVertical_bias="1.0">
 
         <ImageView
-            android:id="@+id/speilImg"
-            android:layout_width="142dp"
-            android:layout_height="162dp"
+            android:id="@+id/itemImg"
+            android:layout_width="167dp"
+            android:layout_height="191dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/img_border"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,79 +35,88 @@
             app:srcCompat="@drawable/ga" />
 
         <TextView
-            android:id="@+id/speilName"
+            android:id="@+id/itemName"
             android:layout_width="73dp"
             android:layout_height="40dp"
             android:gravity="center"
             android:text="이름"
-            android:textColor="#D5C649"
             android:textAlignment="center"
+            android:textColor="#D5C649"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/colloq"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.131"
-            app:layout_constraintStart_toEndOf="@+id/speilImg"
+            app:layout_constraintHorizontal_bias="0.191"
+            app:layout_constraintStart_toEndOf="@+id/itemImg"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.114" />
+            app:layout_constraintVertical_bias="0.195" />
 
         <TextView
-            android:id="@+id/tv_lain"
+            android:id="@+id/base"
             android:layout_width="73dp"
             android:layout_height="43dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginEnd="72dp"
             android:gravity="center"
             android:text="쿨타임 "
             android:textColor="#D5C649"
             android:textAlignment="center"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/speilImg"
+            app:layout_constraintBottom_toBottomOf="@+id/itemImg"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/speilImg"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.968" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/itemImg" />
 
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="TextView"
             android:textColor="#D5C649"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.017"
+            app:layout_constraintHorizontal_bias="0.053"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/speilImg"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/itemImg" />
 
         <TextView
-            android:id="@+id/cooldown"
+            android:id="@+id/colloq"
             android:layout_width="73dp"
             android:layout_height="43dp"
+            android:layout_marginEnd="72dp"
+            android:layout_marginBottom="32dp"
             android:gravity="center"
             android:text="TextView"
             android:textColor="#D5C649"
             android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_lain"
+            app:layout_constraintBottom_toTopOf="@+id/base"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.246"
-            app:layout_constraintStart_toEndOf="@+id/tv_lain"
-            app:layout_constraintTop_toTopOf="@+id/tv_lain"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/itemImg" />
 
         <TextView
-            android:id="@+id/speilId"
+            android:id="@+id/itemId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:layout_marginBottom="44dp"
+            android:layout_marginStart="219dp"
+            android:layout_marginTop="180dp"
             android:text="아이디값"
-            app:layout_constraintBottom_toTopOf="@+id/cooldown"
-            app:layout_constraintStart_toEndOf="@+id/speilName" />
+            app:layout_constraintStart_toEndOf="@+id/colloq"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/plaintext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:textColor="#D5C649"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:layout_constraintVertical_bias="0.271" />
 
         <!--<TextView
             android:id="@+id/detail"

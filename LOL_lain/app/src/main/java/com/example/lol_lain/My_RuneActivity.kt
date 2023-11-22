@@ -7,12 +7,9 @@ import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.view.GravityCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.lol_lain.data.RuneData
 import com.example.lol_lain.databinding.ActivityMyRuneBinding
-import com.example.my_api2.ProfileAdapter
-import com.example.my_api2.Profiles
 import com.google.android.material.navigation.NavigationView
 import org.json.JSONArray
 import org.json.JSONObject
@@ -27,6 +24,9 @@ class My_RuneActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        // 소환사 정보 액티비티로 이동하는 버튼 이벤트
+        val intent1 = Intent(this, LoLActivity::class.java)
+        binding.SumBtn.setOnClickListener{startActivity(intent1)}
 
 //        https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png
         val url = "https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles"+"/7200_Domination"+".png"
@@ -73,14 +73,14 @@ class My_RuneActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         val intent2 = Intent(this, MainActivity::class.java)    // 챔피언 정보 액티비티
         val intent3 = Intent(this, My_Champion::class.java)    // 소환사 스펠 액티비티
         val intent4 = Intent(this, My_RuneActivity::class.java) // 챔피언 룬 액티비티
-
+        val intent5 = Intent(this, My_ItemListActivity::class.java) // 챔피언 룬 액티비티
 
         when(item.itemId){
             R.id.login -> startActivity(intent)
             R.id.champion -> startActivity(intent2)
             R.id.championSpell -> startActivity(intent3)
             R.id.championRune -> startActivity(intent4)
-
+            R.id.championItem -> startActivity(intent5)
 
             R.id.login -> Toast.makeText(applicationContext,"로그인", Toast.LENGTH_LONG).show()
 

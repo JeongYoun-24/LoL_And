@@ -3,6 +3,7 @@
    android:id="@+id/layoutDrawer"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/blu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".My_RuneActivity">
@@ -13,32 +14,41 @@
         android:layout_height="match_parent">
 
 
-        <Button
-            android:id="@+id/btn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="16dp"
+        <ImageView
+            android:id="@+id/SumBtn"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
             android:text="소환사 정보"
             app:layout_constraintBottom_toBottomOf="@+id/btn_navi"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/btn_navi"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/img_5" />
+
+        <!--<TextView
+            android:id="@+id/textView3"
+            android:layout_width="72dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="44dp"
+            android:text="소환사정보"
+            app:layout_constraintEnd_toEndOf="@+id/SumBtn"
+            app:layout_constraintTop_toTopOf="@+id/SumBtn" />-->
+
 
         <ImageView
             android:id="@+id/btn_navi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="61dp"
+            android:layout_height="69dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_menu_24" />
-
+            app:srcCompat="@drawable/menu1" />
 
         <ScrollView
+            android:id="@+id/scrollView7"
             android:layout_width="390dp"
             android:layout_height="557dp"
             android:layout_marginStart="10dp"
@@ -65,6 +75,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_weight="0"
+                        android:background="@drawable/img_border"
                         android:src="@drawable/ga" />
 
                     <TextView
@@ -73,7 +84,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0"
                         android:gravity="center"
-
+                        android:textColor="#D5C649"
                         android:text="TextView" />
 
                     <TextView
@@ -83,6 +94,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_weight="0"
                         android:gravity="center"
+                        android:textColor="#D5C649"
                         android:text="TextView" />
 
                 </LinearLayout>
@@ -98,6 +110,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_weight="0"
+                        android:background="@drawable/img_border"
                         android:src="@drawable/ga" />
 
                     <TextView
@@ -106,6 +119,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0"
                         android:gravity="center"
+                        android:textColor="#D5C649"
                         android:text="TextView" />
 
                     <TextView
@@ -115,6 +129,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_weight="0"
                         android:gravity="center"
+                        android:textColor="#D5C649"
                         android:text="TextView" />
 
                 </LinearLayout>
@@ -130,6 +145,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_weight="0"
+                        android:background="@drawable/img_border"
                         android:src="@drawable/ga" />
 
                     <TextView
@@ -138,6 +154,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0"
                         android:gravity="center"
+                        android:textColor="#D5C649"
                         android:text="TextView" />
 
                     <TextView
@@ -147,6 +164,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_weight="0"
                         android:gravity="center"
+                        android:textColor="#D5C649"
                         android:text="TextView" />
 
                 </LinearLayout>
@@ -162,6 +180,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_weight="0"
+                        android:background="@drawable/img_border"
                         android:src="@drawable/ga" />
 
                     <TextView
@@ -170,6 +189,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0"
                         android:gravity="center"
+                        android:textColor="#D5C649"
                         android:text="TextView" />
 
                     <TextView
@@ -179,6 +199,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_weight="0"
                         android:gravity="center"
+                        android:textColor="#D5C649"
                         android:text="TextView" />
                 </LinearLayout>
 
@@ -192,6 +213,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_weight="0"
+                        android:background="@drawable/img_border"
                         android:src="@drawable/ga" />
 
                     <TextView
@@ -200,6 +222,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0"
                         android:gravity="center"
+                        android:textColor="#D5C649"
                         android:text="TextView" />
 
                     <TextView
@@ -209,11 +232,24 @@
                         android:layout_marginLeft="20dp"
                         android:layout_weight="0"
                         android:gravity="center"
+                        android:textColor="#D5C649"
                         android:text="TextView" />
                 </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="소환사 룬 "
+            android:textColor="#D5C649"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.907" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

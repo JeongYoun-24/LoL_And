@@ -26,7 +26,7 @@ var text2 = ""
 var index = 0
 class LoL_DetailActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
     private val binding by lazy { ActivityLoLdetailBinding.inflate(layoutInflater) }
-
+    lateinit var imgView : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -34,7 +34,7 @@ class LoL_DetailActivity : AppCompatActivity() , NavigationView.OnNavigationItem
 
         // 소환사 정보 액티비티 이동
         val intent1 = Intent(this, LoLActivity::class.java)
-        binding.btn1.setOnClickListener{startActivity(intent1)}
+        binding.SumBtn.setOnClickListener{startActivity(intent1)}
 
         binding.skilName.text = ""
         binding.skilDetail.text = ""
@@ -56,6 +56,9 @@ class LoL_DetailActivity : AppCompatActivity() , NavigationView.OnNavigationItem
 
         // 챔피언 의 아이디값을 인텐트로  받음
         val id = intent.getStringExtra("id")
+
+        val Imgurl = "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/nav-icon-profile.svg"
+//        Glide.with(this).load(Imgurl).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.SumBtn)
 
 
         // 인텐트로 받아온 아이디 값으로 챔피언 스킬이미지 api url로 들고오기
@@ -83,28 +86,28 @@ class LoL_DetailActivity : AppCompatActivity() , NavigationView.OnNavigationItem
 
         
         // 챔피언 스킬 설명 (인덱스 번호로 순서에 맞는 정보 받아오기)
-        binding.QBtn2.setOnClickListener {
+        binding.qimg.setOnClickListener {
             binding.skilDetail.text = ""
             val index1 = 0
             val thread = NetworkThread(index1)
             thread.start()
             thread.join()
         }
-        binding.WBtn2.setOnClickListener {
+        binding.wimg.setOnClickListener {
             val index1 = 1
             binding.skilDetail.text = ""
             val thread = NetworkThread(index1)
             thread.start()
             thread.join()
         }
-        binding.EBtn2.setOnClickListener {
+        binding.eimg.setOnClickListener {
             val index1 = 2
             binding.skilDetail.text = ""
             val thread = NetworkThread(index1)
             thread.start()
             thread.join()
         }
-        binding.RBtn2.setOnClickListener {
+        binding.rimg.setOnClickListener {
             val index1 = 3
             binding.skilDetail.text = ""
             val thread = NetworkThread(index1)
@@ -122,11 +125,15 @@ class LoL_DetailActivity : AppCompatActivity() , NavigationView.OnNavigationItem
         val intent = Intent(this, LoginActivity::class.java)
         val intent2 = Intent(this, MainActivity::class.java)
         val intent3 = Intent(this, My_Champion::class.java)
+        val intent4 = Intent(this, My_RuneActivity::class.java)
+        val intent5 = Intent(this, My_ItemListActivity::class.java)
 
         when(item.itemId){
             R.id.login -> startActivity(intent)
             R.id.champion -> startActivity(intent2)
             R.id.championSpell -> startActivity(intent3)
+            R.id.championRune -> startActivity(intent4)
+            R.id.championItem -> startActivity(intent5)
 
             R.id.login -> Toast.makeText(applicationContext,"로그인", Toast.LENGTH_LONG).show()
 
@@ -161,6 +168,8 @@ class LoL_DetailActivity : AppCompatActivity() , NavigationView.OnNavigationItem
             Log.d("버튼에서 받은값",index1.toString())
             
             val id = intent.getStringExtra("id")
+            Log.d("sdasdsad",id.toString())
+
             // API 정보를 가지고 있는 주소
             val site = "https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion/"+id+".json"
             val url = URL(site)

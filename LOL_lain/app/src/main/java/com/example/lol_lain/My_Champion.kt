@@ -33,6 +33,10 @@ class My_Champion : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         }
         binding.navieView.setNavigationItemSelectedListener(this)
 
+        // 소환사 정보 액티비티 이동 버튼
+        val intent1 = Intent(this, LoLActivity::class.java)
+        binding.SumBtn.setOnClickListener{startActivity(intent1)}
+
 
 
         val json = assets.open("data.json").reader().readText()
@@ -104,6 +108,7 @@ class My_Champion : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         val intent2 = Intent(this, MainActivity::class.java)    // 챔피언 정보 액티비티
         val intent3 = Intent(this, My_Champion::class.java)    // 소환사 스펠 액티비티
         val intent4 = Intent(this, My_RuneActivity::class.java) // 챔피언 룬 액티비티
+        val intent5 = Intent(this, My_ItemListActivity::class.java) // 챔피언 룬 액티비티
 
 
         when(item.itemId){
@@ -111,6 +116,7 @@ class My_Champion : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             R.id.champion -> startActivity(intent2)
             R.id.championSpell -> startActivity(intent3)
             R.id.championRune -> startActivity(intent4)
+            R.id.championItem -> startActivity(intent5)
 
 
             R.id.login -> Toast.makeText(applicationContext,"로그인", Toast.LENGTH_LONG).show()

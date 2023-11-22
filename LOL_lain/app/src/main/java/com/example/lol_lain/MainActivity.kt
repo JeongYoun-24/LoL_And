@@ -4,26 +4,23 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.lol_lain.databinding.ActivityMainBinding
 
-import com.example.my_api2.ProfileAdapter
-import com.example.my_api2.Profiles
+import com.example.lol_lain.adpter.ProfileAdapter
+import com.example.lol_lain.data.Profiles
 import com.google.android.material.navigation.NavigationView
-import com.google.gson.JsonObject
-import org.json.JSONArray
-import org.json.JSONObject
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.net.URL
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private val binding by lazy {
@@ -41,10 +38,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         val intent4 = Intent(this, LoLActivity::class.java)
-        binding.button.setOnClickListener{startActivity(intent4)}
+        binding.SumBtn.setOnClickListener{startActivity(intent4)}
 
 
-
+        // 라이엇 url api 에서 이미지 받아오기
+        val Imgurl = "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/button-search-hover.png"
+        Glide.with(this).load(Imgurl).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.seletImg)
 
         val profileList = arrayListOf(  // 리사이클뷰 더비 데이터
             // 1번째 줄
@@ -53,7 +52,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             Profiles(R.drawable.geng,"갱플랭크","Gangplank","전사","몰락한 해적왕 갱플랭크는 잔인한 성격에다 종잡을 수 없으며 사악함은 타의 추종을 불허한다. 과거 항구도시 빌지워터를 힘으로 장악했으나 지금은 영향력을 잃었다. 하지만 사람들은 그렇기 때문에 오히려 갱플랭크가 더 미쳐 날뛰리라고 생각한다. 갱플랭크는 빌지워터를 다른 사람에게 넘기느니 다시 한 번 피바다로 만들어 버릴 인물이니까. 그리고 이제, 권총, 해적검, 화약통으로 무장한 갱플랭크가 잃었던 패권을 되찾기 위한 준비를 끝냈다."),
             Profiles(R.drawable.ge,"그라가스","Gragas","전사","그라가스는 몸집이 크고 소란스러워서 한 번 보면 잊기 힘든 쾌활한 주조가로, 완벽한 술을 만들기 위한 여정을 떠나게 되었다. 그라가스가 어디서 왔는지는 아무도 모르지만, 프렐요드의 때묻지 않은 불모지를 뒤지며 희귀한 재료를 찾아 주조법을 하나씩 시험해 보고 있다. 대부분 술에 취해 있어 극도로 충동적인 그라가스는 소동을 일으키는 데에는 전설적인 소질이 있는데, 그 소동은 밤샘 파티와 엄청난 기물 파손으로 이어지기 일쑤다. 그라가스를 보게 된다면 곧 음주, 그리고 파괴가 잇따를 것이라고 생각해도 좋다."),
             Profiles(R.drawable.gere,"그레이브즈","Graves","원거리딜러","말콤 그레이브즈는 명성이 자자한 용병, 도박사, 도적으로, 그가 한 번이라도 발을 들였던 모든 도시와 제국에서 수배령이 떨어져 있을 정도다. 그레이브즈는 성미가 불 같지만, 범죄의 명예에 엄격한 면이 있어 자신의 이중 총열 산탄총 '운명'으로 마무리를 하는 경우가 잦다. 최근에는 트위스티드 페이트와 함께 바람 잘 날 없던 파트너 관계를 다시 맺고, 범죄의 냄새가 나는 빌지워터의 그늘진 곳에서 벌어지는 소동을 다시 한 번 주름잡고 있다."),
-
         )
         val profileList2 = arrayListOf(  // 리사이클뷰 더비 데이터
             // 2번째 줄
@@ -129,23 +127,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         )
 
 
-
-
-
-     /*   val Aatrox = data.getString("Aatrox")
-
-        Log.d("ssss",data.getString("Aatrox"))
-        Log.d("ssss2",Aatrox)
-
-        val profileList10 = arrayListOf(  // 리사이클뷰 더비 데이터
-            // 9번째 줄
-            Profiles(R.drawable.malphite,"${Aatrox}","탱커","")
-
-        )
-        Log.d("sdas",profileList10.toString())
-*/
-
-
         //VERTICAL 세로 방향  HORIZONTAL 가로방향
         binding.rvProfile.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         binding.rvProfile.setHasFixedSize(true)
@@ -183,33 +164,44 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.rvProfile9.setHasFixedSize(true)
         binding.rvProfile9.adapter = ProfileAdapter(profileList9)
 
-
-
-
+        // 네이게이션 이벤트
         binding.btnNavi.setOnClickListener(){
             binding.layoutDrawer.openDrawer(GravityCompat.START) // START : left  END : right
         }
         binding.navieView.setNavigationItemSelectedListener(this)
 
-        /*    viewManager = LinearLayoutManager(this)
-            viewAdapter= MyAdapter(myDataset)
 
-            recyclerView = findViewById<RecyclerView>(R.id.recycler).apply {
-                setHasFixedSize(true)
 
-                layoutManager = viewManager
+      binding.seletText.setOnEditorActionListener(getEditorActionListener(binding.seletImg)) // 키보드에서 done(완료)
 
-                adapter = viewAdapter
+        binding.seletImg.setOnClickListener {
+            showToast("확인 버튼이 눌려졌습니다")
+        }
 
-            }*/
 
     }
+
+
+    fun getEditorActionListener(view: View): TextView.OnEditorActionListener { // 키보드에서 done(완료) 클릭 시 , 원하는 뷰 클릭되게 하는 메소드
+        return TextView.OnEditorActionListener { textView, actionId, keyEvent ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                view.callOnClick()
+            }
+            false
+        }
+    }
+    fun showToast(message: String) {
+        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+    }
+
+
     // 네이게이션 메뉴 아이템 클릭시 수행 메서드
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val intent = Intent(this, LoginActivity::class.java) // 로그인 액티비티
         val intent2 = Intent(this, MainActivity::class.java) // 메인 액티비티
         val intent3 = Intent(this, My_Champion::class.java) // 챔피언 스펠 액티비티
         val intent4 = Intent(this, My_RuneActivity::class.java) // 챔피언 룬 액티비티
+        val intent5 = Intent(this, My_ItemListActivity::class.java) // 챔피언 룬 액티비티
 
 
         when(item.itemId){
@@ -217,13 +209,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.champion -> startActivity(intent2)
             R.id.championSpell -> startActivity(intent3)
             R.id.championRune -> startActivity(intent4)
+            R.id.championItem -> startActivity(intent5)
 
             R.id.login -> Toast.makeText(applicationContext,"로그인",Toast.LENGTH_LONG).show()
             R.id.champion -> Toast.makeText(applicationContext,"챔피언 정보",Toast.LENGTH_LONG).show()
             R.id.championSpell -> Toast.makeText(applicationContext,"새소식",Toast.LENGTH_LONG).show()
         }
-
-
         binding.layoutDrawer.closeDrawers() //네이게이션 닫기
         return false
     }
