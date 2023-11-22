@@ -22,6 +22,7 @@
 <H3>메인 페이지</H3>
 <BR>
 
+![캡처](https://github.com/JeongYoun-24/LoL_And/assets/126854252/2e6f64b1-ff1b-4e05-8d6c-328ae4422ed4)
 
 
 
