@@ -26,7 +26,7 @@
 <BR>
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/5ffd3125-34be-472d-a5ad-36d52c6028a7" height="350">
 
-<BR>
+</BR>
 
 <BR>
 <UL>
@@ -37,8 +37,7 @@
 </UL>
 <BR>
 
-
-
+<BR>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_drawer"
     android:background="@color/blu"
@@ -49,8 +48,6 @@
     android:orientation="vertical"
     android:paddingHorizontal="15dp"
     android:paddingVertical="20dp">
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -228,6 +225,7 @@
 <BR>
 #메인액티비티 코드 
 <코드가 길어 짧게 요약 >
+<BR>
         // 라이엇 url api 에서 이미지 받아오기
         val Imgurl = "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/button-search-hover.png"
         Glide.with(this).load(Imgurl).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.seletImg)
@@ -260,7 +258,7 @@
         binding.layoutDrawer.closeDrawers() //네이게이션 닫기
         return false
     }
-        
+  <BR>      
 #어댑터 코드 
 <BR>
 class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapter<ProfileAdapter.CustemViewHolder>() {
