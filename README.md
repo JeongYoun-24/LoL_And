@@ -24,10 +24,9 @@
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/2e6f64b1-ff1b-4e05-8d6c-328ae4422ed4" height="350">
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/2e6ffc15-27cc-4616-b19e-aaeab5f210be" height="350">
 <BR>
+
+<BR>
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/5ffd3125-34be-472d-a5ad-36d52c6028a7" height="350">
-
-</BR>
-
 <BR>
 <UL>
  <LI>기본 디폴트로 잡혀 있는 메인 페이지입니다. 
@@ -221,26 +220,27 @@
         app:itemTextColor="@color/yeil"
         app:menu="@menu/nav_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>
+<BR>
 
-</BR>
+
 #메인액티비티 코드 
 <코드가 길어 짧게 요약 >
 <BR>
-        // 라이엇 url api 에서 이미지 받아오기
-        val Imgurl = "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/button-search-hover.png"
-        Glide.with(this).load(Imgurl).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.seletImg)
+  // 라이엇 url api 에서 이미지 받아오기
+ val Imgurl = "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/button-search-hover.png"
+ Glide.with(this).load(Imgurl).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.seletImg)
 
 //VERTICAL 세로 방향  HORIZONTAL 가로방향
         binding.rvProfile.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         binding.rvProfile.setHasFixedSize(true)
         binding.rvProfile.adapter = ProfileAdapter(profileList)
-
+        
        // 네이게이션 이벤트
         binding.btnNavi.setOnClickListener(){
             binding.layoutDrawer.openDrawer(GravityCompat.START) // START : left  END : right
         }
         binding.navieView.setNavigationItemSelectedListener(this)  
-
+        
 // 네이게이션 메뉴 아이템 클릭시 수행 메서드
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val intent = Intent(this, LoginActivity::class.java) // 로그인 액티비티
@@ -258,7 +258,8 @@
         binding.layoutDrawer.closeDrawers() //네이게이션 닫기
         return false
     }
-  <BR>      
+  <BR> 
+  
 #어댑터 코드 
 <BR>
 class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapter<ProfileAdapter.CustemViewHolder>() {
