@@ -27,7 +27,7 @@
 <BR>
 
 <BR>
-<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/74ad6d91-efc0-454d-9447-a785e35eefec" height="350">
+<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/6fe145f1-b069-4f1d-903f-0d8b0d079a31" height="350">
 <BR>
 <UL>
  <LI>기본 디폴트로 잡혀 있는 메인 페이지입니다. 
