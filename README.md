@@ -13,6 +13,7 @@
 
 
 
+
 # 사용기술
 ![js](https://img.shields.io/badge/kotlin-7F52FF?style=for-the-badge&logo=JavaScript&logoColor=white)
 ![js](https://img.shields.io/badge/androidstudio-3DDC84?style=for-the-badge&logo=JavaScript&logoColor=white)
@@ -26,7 +27,7 @@
 <BR>
 
 <BR>
-<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/5ffd3125-34be-472d-a5ad-36d52c6028a7" height="350">
+<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/74ad6d91-efc0-454d-9447-a785e35eefec" height="350">
 <BR>
 <UL>
  <LI>기본 디폴트로 잡혀 있는 메인 페이지입니다. 
