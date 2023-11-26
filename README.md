@@ -24,7 +24,7 @@
 <H3>메인 페이지</H3>
 <BR>
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/9e7217a7-3cae-40a5-bd25-7791ad600935" height="350">
-<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/2e6ffc15-27cc-4616-b19e-aaeab5f210be" height="350">
+<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/1e3ab237-3f94-419e-a27a-c2e1f37059b4" height="350">
 <BR>
 
 <BR>
