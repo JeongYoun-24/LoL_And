@@ -100,10 +100,11 @@
 
 ---
 
+<details>
  <summary> 메인 액티비티에서 받아온 인텐트에서 값을 꺼내 데이터 보여주기
  
-
-```
+ </summary> 
+ ```
 // 챔피언정보 액티비티에서 받아온 인텐트 에 객체정보를 받아 변환
         val bitmap: Bitmap? = intent.getParcelableExtra("gender")
         Log.d("이미지값??",bitmap.toString())
@@ -129,6 +130,10 @@
         val url4 = "https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/"+id+"R"+".png"
         Glide.with(this).load(url4).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.rimg)
 ```
+
+</details>
+ 
+
 
 
      스레드 이용해서 데이터 가져오기
