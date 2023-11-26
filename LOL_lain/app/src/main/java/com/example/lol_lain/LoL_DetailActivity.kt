@@ -3,18 +3,20 @@ package com.example.lol_lain
 
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
+import android.media.MediaPlayer.OnPreparedListener
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
+import android.widget.MediaController
 import android.widget.Toast
+import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.Target
 import com.example.lol_lain.databinding.ActivityLoLdetailBinding
 import com.google.android.material.navigation.NavigationView
 import org.json.JSONObject
@@ -22,15 +24,23 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.URL
 
+
 var text2 = ""
 var index = 0
 class LoL_DetailActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
     private val binding by lazy { ActivityLoLdetailBinding.inflate(layoutInflater) }
     lateinit var imgView : ImageView
+    var vv : VideoView? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        // 비디오 뷰 영상 넣기
+        val videoUri = Uri.parse("https://www.youtube.com/watch?v=CjaJVaTzt-4")
+
+        
 
         // 소환사 정보 액티비티 이동
         val intent1 = Intent(this, LoLActivity::class.java)
@@ -57,9 +67,8 @@ class LoL_DetailActivity : AppCompatActivity() , NavigationView.OnNavigationItem
         // 챔피언 의 아이디값을 인텐트로  받음
         val id = intent.getStringExtra("id")
 
-        val Imgurl = "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/nav-icon-profile.svg"
-//        Glide.with(this).load(Imgurl).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.SumBtn)
-
+        // val Imgurl = "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/nav-icon-profile.svg"
+        // Glide.with(this).load(Imgurl).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.SumBtn)
 
         // 인텐트로 받아온 아이디 값으로 챔피언 스킬이미지 api url로 들고오기
         val url = "https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/"+id+"Q"+".png"
@@ -115,9 +124,17 @@ class LoL_DetailActivity : AppCompatActivity() , NavigationView.OnNavigationItem
             thread.join()
         }
 
+    }
 
+    override fun onPause() {
+        super.onPause()
 
-
+        //비디오 일시 정지
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        //
+        if (vv != null) vv!!.stopPlayback()
     }
 
     // 네이게이션 메뉴 아이템 클릭시 수행 메서드
@@ -199,10 +216,33 @@ class LoL_DetailActivity : AppCompatActivity() , NavigationView.OnNavigationItem
             runOnUiThread {
                 // 페이지 수만큼 반복하여 데이터를 불러온다.
                 for(i in 0 until data2.length()){
+
                     // 쪽수 별로 데이터를 읽는다.
-                    val jObject = data2.getJSONObject(index1)
-                    binding.skilName.text = "${jObject.getString("name")}"
-                    binding.skilDetail.text = "${jObject.getString("description")}"
+                    if(index1 == 0){
+                        val jObject = data2.getJSONObject(index1)
+                        binding.skilName.text = "Q ${jObject.getString("name")}"
+                        binding.skilDetail.text = "${jObject.getString("description")}"
+
+                    }else if(index1 == 1 ){
+                        // 쪽수 별로 데이터를 읽는다.
+                        val jObject = data2.getJSONObject(index1)
+                        binding.skilName.text = "W ${jObject.getString("name")}"
+                        binding.skilDetail.text = "${jObject.getString("description")}"
+
+                    }else if(index1 == 2 ){
+                        // 쪽수 별로 데이터를 읽는다.
+                        val jObject = data2.getJSONObject(index1)
+                        binding.skilName.text = "E ${jObject.getString("name")}"
+                        binding.skilDetail.text = "${jObject.getString("description")}"
+
+                    }else if(index1 == 3 ){
+                        // 쪽수 별로 데이터를 읽는다.
+                        val jObject = data2.getJSONObject(index1)
+                        binding.skilName.text = "R ${jObject.getString("name")}"
+                        binding.skilDetail.text = "${jObject.getString("description")}"
+
+                    }
+
 
                 }
             }

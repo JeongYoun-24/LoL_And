@@ -26,14 +26,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
-    //   private lateinit var recyclerView: RecyclerView
-    //  private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    // private lateinit var viewManager:RecyclerView.LayoutManager
-    // private var myDataset = listOf("1.사과","2.배","3.오렌지")
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -127,6 +119,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         )
 
 
+        //리사이클 뷰 와 연결된 어댑터 와 데이터
         //VERTICAL 세로 방향  HORIZONTAL 가로방향
         binding.rvProfile.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         binding.rvProfile.setHasFixedSize(true)
@@ -202,18 +195,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val intent3 = Intent(this, My_Champion::class.java) // 챔피언 스펠 액티비티
         val intent4 = Intent(this, My_RuneActivity::class.java) // 챔피언 룬 액티비티
         val intent5 = Intent(this, My_ItemListActivity::class.java) // 챔피언 룬 액티비티
-
-
         when(item.itemId){
             R.id.login -> startActivity(intent)
             R.id.champion -> startActivity(intent2)
             R.id.championSpell -> startActivity(intent3)
             R.id.championRune -> startActivity(intent4)
             R.id.championItem -> startActivity(intent5)
-
-            R.id.login -> Toast.makeText(applicationContext,"로그인",Toast.LENGTH_LONG).show()
-            R.id.champion -> Toast.makeText(applicationContext,"챔피언 정보",Toast.LENGTH_LONG).show()
-            R.id.championSpell -> Toast.makeText(applicationContext,"새소식",Toast.LENGTH_LONG).show()
         }
         binding.layoutDrawer.closeDrawers() //네이게이션 닫기
         return false
@@ -228,25 +215,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onBackPressed()
     }
 }
-class MyAdapter(private val myDatset:List<String>) :
-    RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
 
-    class MyViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView)
-
-    override fun onCreateViewHolder(parent:ViewGroup,viewType:Int):MyAdapter.MyViewHolder{
-        val textView = LayoutInflater.from(parent.context).inflate(R.layout.recycler_view,parent,false)as TextView
-        return MyViewHolder(textView)
-    }
-
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
-        val itemView = holder.itemView
-        val textView =itemView.findViewById<TextView>(R.id.tv_time)
-        textView.text = myDatset[position]
-
-    }
-
-    override fun getItemCount()= myDatset.size
 
 
 
@@ -333,4 +302,3 @@ class MyAdapter(private val myDatset:List<String>) :
 
 
 
-}

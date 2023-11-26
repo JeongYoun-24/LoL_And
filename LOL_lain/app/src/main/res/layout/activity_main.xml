@@ -15,69 +15,52 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="408dp"
+            android:layout_height="50dp"
+            android:background="@color/blu"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:subtitleTextColor="#FFFFFF"
+            app:titleTextColor="#FFFFFF" />
+
         <ImageView
             android:id="@+id/btn_navi"
-            android:layout_width="64dp"
-            android:layout_height="61dp"
+            android:layout_width="61dp"
+            android:layout_height="30dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/menu1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="111dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="150dp"
-            android:text="챔피언 정보"
-            android:textColor="#D5C649"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/seletText"
-            android:layout_width="174dp"
-            android:layout_height="45dp"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="챔피언 이름 입력"
-            android:inputType="text"
-            android:text=""
-            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.041" />
-
-        <ImageView
-            android:id="@+id/seletImg"
-            android:layout_width="61dp"
-            android:layout_height="46dp"
-            app:layout_constraintBottom_toBottomOf="@+id/seletText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/seletText"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:srcCompat="@drawable/baseline_search_24" />
-
         <ImageView
             android:id="@+id/SumBtn"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
+            android:layout_width="42dp"
+            android:layout_height="30dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="32dp"
             android:text="소환사 정보"
             app:layout_constraintBottom_toBottomOf="@+id/btn_navi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.222"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/img_5" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="101dp"
+            android:layout_height="30dp"
+            android:text="챔피언 정보"
+            android:textColor="#D5C649"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_navi"
+            app:layout_constraintEnd_toStartOf="@+id/SumBtn"
+            app:layout_constraintStart_toEndOf="@+id/btn_navi" />
 
         <!--<TextView
             android:id="@+id/textView3"
@@ -88,6 +71,37 @@
             android:textColor="#D5C649"
             app:layout_constraintEnd_toEndOf="@+id/SumBtn"
             app:layout_constraintTop_toTopOf="@+id/SumBtn" />-->
+
+        <EditText
+            android:id="@+id/seletText"
+            android:layout_width="174dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="챔피언 이름 입력"
+            android:textColorHint="#D5C649"
+            android:inputType="text"
+            android:text=""
+            android:textColor="#D5C649"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.67" />
+
+
+        <ImageView
+            android:id="@+id/seletImg"
+            android:layout_width="61dp"
+            android:layout_height="46dp"
+            app:layout_constraintBottom_toBottomOf="@+id/seletText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/seletText"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/baseline_search_24" />
 
         <ScrollView
             android:id="@+id/scrollView2"
@@ -107,6 +121,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_profile"
+                    android:background="@drawable/img_border"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -114,6 +129,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_profile2"
+                    android:background="@drawable/img_border"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="-8dp"
@@ -121,6 +137,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_profile3"
+                    android:background="@drawable/img_border"
                     android:layout_width="match_parent"
                     android:layout_height="215dp"
                     android:layout_marginTop="8dp"
@@ -128,6 +145,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_profile4"
+                    android:background="@drawable/img_border"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
@@ -135,6 +153,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_profile5"
+                    android:background="@drawable/img_border"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
@@ -142,6 +161,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_profile6"
+                    android:background="@drawable/img_border"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
@@ -149,6 +169,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_profile7"
+                    android:background="@drawable/img_border"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
@@ -156,6 +177,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_profile8"
+                    android:background="@drawable/img_border"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
@@ -163,6 +185,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_profile9"
+                    android:background="@drawable/img_border"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
@@ -176,9 +199,12 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navieView"
+        android:textColor="#D5C649"
+        android:background="@color/blu"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:itemTextColor="@color/yeil"
         app:menu="@menu/nav_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

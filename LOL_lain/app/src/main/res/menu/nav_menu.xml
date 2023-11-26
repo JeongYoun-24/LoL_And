@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:background="@color/blu"
+        >
 
         <item android:id="@+id/login"
             android:icon="@drawable/baseline_accessibility_24"
+            android:textColor="#D5C649"
             android:title="로그인"/>
 
         <item android:id="@+id/champion"
             android:icon="@drawable/sum"
+            android:textColor="#D5C649"
             android:title="챔피언 정보"/>
 
         <item android:id="@+id/championSpell"
             android:icon="@drawable/img_1"
+            android:textColor="#D5C649"
             android:title="챔피언 스펠"/>
 
         <item android:id="@+id/championRune"
             android:icon="@drawable/img_2"
+            android:textColor="#D5C649"
             android:title="챔피언 룬"/>
 
         <item android:id="@+id/championItem"
             android:icon="@drawable/img"
+            android:textColor="#D5C649"
             android:title="챔피언 아이템"/>
 
 

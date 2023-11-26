@@ -13,18 +13,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="408dp"
+            android:layout_height="50dp"
+            android:background="@color/blu"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:subtitleTextColor="#FFFFFF"
+            app:titleTextColor="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/btn_navi"
+            android:layout_width="61dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/menu1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/SumBtn"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="40dp"
+            android:layout_width="42dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="소환사 정보"
             app:layout_constraintBottom_toBottomOf="@+id/btn_navi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.222"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/img_5" />
+
+
         <!--<TextView
             android:id="@+id/textView3"
             android:layout_width="72dp"
@@ -34,23 +59,11 @@
             app:layout_constraintEnd_toEndOf="@+id/SumBtn"
             app:layout_constraintTop_toTopOf="@+id/SumBtn" />-->
 
-        <ImageView
-            android:id="@+id/btn_navi"
-            android:layout_width="57dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintBottom_toTopOf="@+id/scrollView5"
-            app:layout_constraintEnd_toStartOf="@+id/SumBtn"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/menu1" />
 
         <ScrollView
             android:id="@+id/scrollView5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="392dp"
+            android:layout_height="618dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="104dp"
             android:layout_marginEnd="10dp"
@@ -155,6 +168,7 @@
                     android:textColor="#D5C649" />
 
                 <LinearLayout
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -272,44 +286,16 @@
                 <TextView
                     android:id="@+id/skilDetail"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="37dp"
                     android:text="TextView"
                     android:textColor="#D5C649" />
 
-                <VideoView
-                    android:id="@+id/videoView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <Button
-                    android:id="@+id/button7"
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_marginTop="100dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
-
-                <Button
-                    android:id="@+id/button8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Button" />
-
-                <Button
-                    android:id="@+id/button9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Button" />
-
-                <Button
-                    android:id="@+id/button10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Button" />
-
-                <Button
-                    android:id="@+id/button11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Button" />
+                     />
 
             </LinearLayout>
         </ScrollView>

@@ -3,5 +3,7 @@
     <color name="black">#FF000000</color>  // 검은색
     <color name="white">#FFFFFFFF</color>  // 흰색
 
+    <color name="yeil">#FFEB3B</color>  // 노란색
+    <color name="menu">#515150</color>  // 노란색
     <color name="blu">#292E2D</color>
 </resources>

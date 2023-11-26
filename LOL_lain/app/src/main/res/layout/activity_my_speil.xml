@@ -30,7 +30,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/speilList"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
                     tools:listitem="@layout/spell_list" />
@@ -50,36 +50,40 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="408dp"
+            android:layout_height="50dp"
+            android:background="@color/blu"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:subtitleTextColor="#FFFFFF"
+            app:titleTextColor="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/btn_navi"
+            android:layout_width="61dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/menu1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/SumBtn"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="40dp"
+            android:layout_width="42dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="소환사 정보"
             app:layout_constraintBottom_toBottomOf="@+id/btn_navi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.222"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/img_5" />
-        <!--<TextView
-            android:id="@+id/textView3"
-            android:layout_width="72dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="44dp"
-            android:text="소환사정보"
-            app:layout_constraintEnd_toEndOf="@+id/SumBtn"
-            app:layout_constraintTop_toTopOf="@+id/SumBtn" />-->
-
-        <ImageView
-            android:id="@+id/btn_navi"
-            android:layout_width="64dp"
-            android:layout_height="61dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/menu1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
