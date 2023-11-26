@@ -15,15 +15,13 @@
 
 
 # 사용기술
-![js](![image](https://github.com/JeongYoun-24/LoL_And/assets/126854252/98f580b6-fcdf-4337-a1c1-2dc96e7b1dc6)
-
 ![js](https://img.shields.io/badge/androidstudio-3DDC84?style=for-the-badge&logo=JavaScript&logoColor=white)
 
 # 핵심 기능 및 페이지 소개
 
 <H3>메인 페이지</H3>
 <BR>
-<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/2e6f64b1-ff1b-4e05-8d6c-328ae4422ed4" height="350">
+<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/9e7217a7-3cae-40a5-bd25-7791ad600935" height="350">
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/2e6ffc15-27cc-4616-b19e-aaeab5f210be" height="350">
 <BR>
 
