@@ -15,7 +15,8 @@
 
 
 # 사용기술
-![js](https://img.shields.io/badge/kotlin-7F52FF?style=for-the-badge&logo=JavaScript&logoColor=white)
+![js](![image](https://github.com/JeongYoun-24/LoL_And/assets/126854252/98f580b6-fcdf-4337-a1c1-2dc96e7b1dc6)
+
 ![js](https://img.shields.io/badge/androidstudio-3DDC84?style=for-the-badge&logo=JavaScript&logoColor=white)
 
 # 핵심 기능 및 페이지 소개
