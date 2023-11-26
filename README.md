@@ -88,22 +88,20 @@
 ```
 </details>
 
-
-
-
-
-
+---
 
 #챔피언 상세설명 액티비티 
 
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/9e7ce638-7d88-4b89-b587-debe2e055dae" height="350" >
 
 ---
+#메인 액티비티에서 받아온 인텐트에서 값을 꺼내 데이터 보여주기
 
 <details>
- <summary> 메인 액티비티에서 받아온 인텐트에서 값을 꺼내 데이터 보여주기
+ <summary> 상세설명 액티비티 코드
  
  </summary> 
+ 
  ```
 // 챔피언정보 액티비티에서 받아온 인텐트 에 객체정보를 받아 변환
         val bitmap: Bitmap? = intent.getParcelableExtra("gender")
@@ -132,50 +130,19 @@
 ```
 
 </details>
+
  
+#스레드 이용해서 데이터 가져오기
 
 
-
-     스레드 이용해서 데이터 가져오기
-
-
-```
- // 챔피언 스킬 설명 (인덱스 번호로 순서에 맞는 정보 받아오기)
-        binding.qimg.setOnClickListener {
-            binding.skilDetail.text = ""
-            val index1 = 0
-            val thread = NetworkThread(index1)
-            thread.start()
-            thread.join()
-        }
-        binding.wimg.setOnClickListener {
-            val index1 = 1
-            binding.skilDetail.text = ""
-            val thread = NetworkThread(index1)
-            thread.start()
-            thread.join()
-        }
-        binding.eimg.setOnClickListener {
-            val index1 = 2
-            binding.skilDetail.text = ""
-            val thread = NetworkThread(index1)
-            thread.start()
-            thread.join()
-        }
-        binding.rimg.setOnClickListener {
-            val index1 = 3
-            binding.skilDetail.text = ""
-            val thread = NetworkThread(index1)
-            thread.start()
-            thread.join()
-        }
-
-```
-
-<스레드 코드>
-
-```
-  inner class NetworkThread(val index1 :Int): Thread(){ // 스레드로 url api 정보 받아오기
+<details>
+ <summary>  스레드 코드
+ 
+ </summary> 
+ 
+ // 스레드로 url api 정보 받아오기
+ 
+inner class NetworkThread(val index1 :Int): Thread(){ 
         override fun run() {
            
             Log.d("버튼에서 받은값",index1.toString())
@@ -243,7 +210,7 @@
                 }
             }
         }
-        // 함수를 통해 데이터를 불러온다.
+     // 함수를 통해 데이터를 불러온다.
         fun JSON_Parse(obj:JSONObject, data : String): String {
             // 원하는 정보를 불러와 리턴받고 없는 정보는 캐치하여 "없습니다."로 리턴받는다.
             return try { obj.getString(data)
@@ -251,11 +218,15 @@
                 "없습니다."
             }
         }
-    }
-```
+
+
+</details>
 
 
 ---
+
+
+
 
 #네비게이션에 연결된 액티비티 
 
@@ -271,17 +242,20 @@
 
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/55aad62f-a97a-4f0f-9cf1-e2b6cb22ecfc" height="350" >
 
-<WEBView를 이용해서 화면에 보여주기>
+#WEBView를 이용해서 화면에 보여주기
 
-```
-// 자바 스크립트 허용
+
+<details>
+ <summary> 소환사정보 액티비티 코드 
+ </summary> 
+
+    // 자바 스크립트 허용
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.settings.loadWithOverviewMode = true
         binding.webView.settings.useWideViewPort = true
         binding.webView.settings.allowUniversalAccessFromFileURLs = true
         binding.webView.settings.javaScriptCanOpenWindowsAutomatically = true
         binding.webView.settings.domStorageEnabled = true
-//        binding.webView.settings.setSupportMultipleWindows = true
         binding.webView.settings.saveFormData = true
         WebView.setWebContentsDebuggingEnabled(true)
 
@@ -303,12 +277,15 @@
         binding.webView.webChromeClient = WebChromeClient()
         /* 링크 주소를 로드 */
         binding.webView.loadUrl("file:///android_asset/index.html")
-```
+
+
+</details>
+
 ---
-
-#리사이클 뷰 어댑터 코드 
-
-```
+<details>
+ <summary> 리사이클 뷰 어댑터 코드 
+ </summary> 
+  
 class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapter<ProfileAdapter.CustemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_lest, parent, false)  // 연결될 액티비티
@@ -355,7 +332,12 @@ class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapt
 
 // 데이터
 class Profiles (val gender : Int, val name : String,val id : String, val lain :String, val detail : String)
-```
+
+
+</details>
+
+---
+
 챔피언 정보 api URI
 [<https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion.json>](https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion.json)https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion.json
 
@@ -372,4 +354,7 @@ class Profiles (val gender : Int, val name : String,val id : String, val lain :S
 JSON데이터를 받아오는 과정에서 요청시간과 초당 받을수있는 데이터 횟수가 정해져 있어 스레드를 이용해서 시간을 정해 받아왔습니다.<br>
 처음해본 안드로이드 코틀린 프로젝트라서 코드가 정교하지 못해 많이 아쉽습니다.    <br>
 그래서 다음에 만들때는 좀더 정교하고 API데이터를 활용하여 더욱더 완성도를 높인 프로젝트를 만들수있을것같습니다.<br>
+
+
+
 
