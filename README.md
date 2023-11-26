@@ -46,17 +46,19 @@
 
 #메인액티비티 코드 
 
-
-  코드가 길어 짧게 요약 
+<details>
+ <summary> 코드가 길어 짧게 요약 
  
-
-
+ </summary> 
+ 
  ```
-// 라이엇 url api 에서 이미지 받아오기
+      // 라이엇 url api 에서 이미지 받아오기
         val Imgurl = "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/button-search-hover.png"
         Glide.with(this).load(Imgurl).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.seletImg)
 ```
+
 ---
+
 ```
 // 네이게이션 메뉴 아이템 클릭시 수행 메서드
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -76,6 +78,7 @@
         return false
     }
 ```
+
 ```
 //리사이클 뷰 와 연결된 어댑터 와 데이터 
         //VERTICAL 세로 방향  HORIZONTAL 가로방향
@@ -83,6 +86,9 @@
         binding.rvProfile.setHasFixedSize(true)
         binding.rvProfile.adapter = ProfileAdapter(profileList)
 ```
+</details>
+
+
 
 
 
