@@ -19,6 +19,7 @@
 ![js](https://img.shields.io/badge/androidstudio-3DDC84?style=for-the-badge&logo=JavaScript&logoColor=white)
 ![js](https://img.shields.io/badge/sqlite-003B57?style=for-the-badge&logo=JavaScript&logoColor=white)
 
+
 # 핵심 기능 및 페이지 소개
 
 <H3>메인 페이지</H3>
@@ -28,7 +29,7 @@
 <BR>
 
 <BR>
-<img src="file:///C:/Users/82107/Downloads/Running%20Devices%20-%20LOL_lain%202023-11-26%2014-22-59.gif" height="350" >
+<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/6b936bf2-0e11-4e9c-9cd4-b7010cba509e" height="350" >
 <BR>
 <UL>
  <LI>기본 디폴트로 잡혀 있는 메인 페이지입니다. 
