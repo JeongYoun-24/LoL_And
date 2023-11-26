@@ -45,9 +45,13 @@
 ---
 
 #메인액티비티 코드 
-<코드가 길어 짧게 요약 >
 
-```
+<details>
+ <summary> 코드가 길어 짧게 요약 
+ 
+ </summary> 
+
+ ```
 // 라이엇 url api 에서 이미지 받아오기
         val Imgurl = "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/button-search-hover.png"
         Glide.with(this).load(Imgurl).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.seletImg)
@@ -80,12 +84,19 @@
         binding.rvProfile.adapter = ProfileAdapter(profileList)
 ```
 
+</details>
+
+
+
 #챔피언 상세설명 액티비티 
 
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/9e7ce638-7d88-4b89-b587-debe2e055dae" height="350" >
 
 ---
-<메인 액티비티에서 받아온 인텐트에서 값을 꺼내 데이터 보여주기>
+<details>
+ <summary> 메인 액티비티에서 받아온 인텐트에서 값을 꺼내 데이터 보여주기
+ 
+ </summary> 
 ```
 // 챔피언정보 액티비티에서 받아온 인텐트 에 객체정보를 받아 변환
         val bitmap: Bitmap? = intent.getParcelableExtra("gender")
@@ -112,8 +123,13 @@
         val url4 = "https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/"+id+"R"+".png"
         Glide.with(this).load(url4).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.rimg)
 ```
----
-<스레드 이용해서 데이터 가져오기>
+</details>
+
+<details>
+ <summary>
+     스레드 이용해서 데이터 가져오기
+ </summary>
+
 ```
  // 챔피언 스킬 설명 (인덱스 번호로 순서에 맞는 정보 받아오기)
         binding.qimg.setOnClickListener {
@@ -146,7 +162,9 @@
         }
 
 ```
+
 <스레드 코드>
+
 ```
   inner class NetworkThread(val index1 :Int): Thread(){ // 스레드로 url api 정보 받아오기
         override fun run() {
@@ -226,7 +244,9 @@
         }
     }
 ```
+</details>
 
+---
 
 #네비게이션에 연결된 액티비티 
 
