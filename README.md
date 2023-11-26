@@ -37,16 +37,33 @@
      메인메이지 네비게이션 바를 만들어서 여러 액티비티 연결을 할수있도록 하였습니다.
  </LI>
 </UL>
-<BR>
 
+#메인액티비티 
 
-<BR>
-
-<BR>
-
-
+<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/306b05a3-005c-48ab-90f3-6312f3396c4b" height="350" >
+---
 #메인액티비티 코드 
 <코드가 길어 짧게 요약 >
-<BR>
-  
-<BR>
+
+```
+
+```
+---
+#챔피언 상세설명 액티비티 
+
+<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/9e7ce638-7d88-4b89-b587-debe2e055dae" height="350" >
+
+---
+
+#네비게이션에 연결된 액티비티 
+
+<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/614f83bb-03a4-4aea-87a1-3f14174f0db7" height="350" >
+
+<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/3a5ba1b4-a2b0-4991-aee1-9175176b8c2d" height="350" >
+
+<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/28c293ee-863f-4bbe-9491-f5966724738c" height="350" >
+
+
+
+
+
