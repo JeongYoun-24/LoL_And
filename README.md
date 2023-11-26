@@ -236,6 +236,95 @@
 
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/28c293ee-863f-4bbe-9491-f5966724738c" height="350" >
 
+---
+
+#소환사 정보 
+<img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/55aad62f-a97a-4f0f-9cf1-e2b6cb22ecfc" height="350" >
+<WEBView를 이용해서 화면에 보여주기>
+```
+// 자바 스크립트 허용
+        binding.webView.settings.javaScriptEnabled = true
+        binding.webView.settings.loadWithOverviewMode = true
+        binding.webView.settings.useWideViewPort = true
+        binding.webView.settings.allowUniversalAccessFromFileURLs = true
+        binding.webView.settings.javaScriptCanOpenWindowsAutomatically = true
+        binding.webView.settings.domStorageEnabled = true
+//        binding.webView.settings.setSupportMultipleWindows = true
+        binding.webView.settings.saveFormData = true
+        WebView.setWebContentsDebuggingEnabled(true)
+
+
+        binding.webView.setWebChromeClient(object : WebChromeClient() {
+            override fun onConsoleMessage(consoleMessage: ConsoleMessage): Boolean {
+                Log.e(
+                    "Console.log",
+                    consoleMessage.message() + " from line " + consoleMessage.lineNumber()
+                            + " of " + consoleMessage.sourceId() + ""
+                )
+                return super.onConsoleMessage(consoleMessage)
+            }
+        })
+
+
+        /* 웹뷰에서 새 창이 뜨지 않도록 방지하는 구문 */
+        binding.webView.webViewClient = WebViewClient()
+        binding.webView.webChromeClient = WebChromeClient()
+        /* 링크 주소를 로드 */
+        binding.webView.loadUrl("file:///android_asset/index.html")
+```
+---
+
+#리사이클 뷰 어댑터 코드 
+```
+class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapter<ProfileAdapter.CustemViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustemViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_lest, parent, false)  // 연결될 액티비티
+
+        return CustemViewHolder(view).apply {
+            val intent = Intent(parent.context, LoL_DetailActivity::class.java)
+
+            val gender = itemView.findViewById<ImageView>(R.id.iv_profile) // 성별
+
+            // 리사이클 클릭시 이벤트
+            itemView.setOnClickListener {
+                val curPos : Int = adapterPosition // 현재 포지션
+                val profile : Profiles = profileList.get(curPos) // 객체형태로 전달
+
+                val bitmap = (gender.drawable as BitmapDrawable).bitmap
+
+                intent.putExtra("gender",bitmap)
+                intent.putExtra("id",profile.id)
+                intent.putExtra("name",profile.name)
+                intent.putExtra("lain",profile.lain)
+                intent.putExtra("detail",profile.detail)
+
+                ContextCompat.startActivity(parent.context,intent,null)
+            }
+        }
+    }
+    override fun getItemCount(): Int {
+        return profileList.size
+    }
+
+    // 실제 연결해주는 메서드
+    override fun onBindViewHolder(holder: CustemViewHolder, position: Int) {
+        holder.gender.setImageResource(profileList.get(position).gender)
+        holder.name.text = profileList.get(position).name
+        holder.lain.text = profileList.get(position).lain
+    }
+    class CustemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val gender = itemView.findViewById<ImageView>(R.id.iv_profile) // 이미지
+        val name = itemView.findViewById<TextView>(R.id.tv_name)        // 이름
+        val lain = itemView.findViewById<TextView>(R.id.tv_lain)        // 라인
+    }
+
+}
+
+// 데이터
+class Profiles (val gender : Int, val name : String,val id : String, val lain :String, val detail : String)
+```
+챔피언 정보 api URI
+<a href="https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion.json">
 
 
 
