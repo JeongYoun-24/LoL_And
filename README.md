@@ -328,7 +328,7 @@ class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapt
 class Profiles (val gender : Int, val name : String,val id : String, val lain :String, val detail : String)
 ```
 챔피언 정보 api URI
-<"https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion.json">
+<https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion.json>
 
 
 
