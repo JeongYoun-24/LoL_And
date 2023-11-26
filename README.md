@@ -41,19 +41,192 @@
 #메인액티비티 
 
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/306b05a3-005c-48ab-90f3-6312f3396c4b" height="350" >
+
 ---
+
 #메인액티비티 코드 
 <코드가 길어 짧게 요약 >
 
 ```
-
+// 라이엇 url api 에서 이미지 받아오기
+        val Imgurl = "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/button-search-hover.png"
+        Glide.with(this).load(Imgurl).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.seletImg)
 ```
 ---
+```
+// 네이게이션 메뉴 아이템 클릭시 수행 메서드
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        val intent = Intent(this, LoginActivity::class.java) // 로그인 액티비티
+        val intent2 = Intent(this, MainActivity::class.java) // 메인 액티비티
+        val intent3 = Intent(this, My_Champion::class.java) // 챔피언 스펠 액티비티
+        val intent4 = Intent(this, My_RuneActivity::class.java) // 챔피언 룬 액티비티
+        val intent5 = Intent(this, My_ItemListActivity::class.java) // 챔피언 룬 액티비티
+        when(item.itemId){
+            R.id.login -> startActivity(intent)
+            R.id.champion -> startActivity(intent2)
+            R.id.championSpell -> startActivity(intent3)
+            R.id.championRune -> startActivity(intent4)
+            R.id.championItem -> startActivity(intent5)
+        }
+        binding.layoutDrawer.closeDrawers() //네이게이션 닫기
+        return false
+    }
+```
+```
+//리사이클 뷰 와 연결된 어댑터 와 데이터 
+        //VERTICAL 세로 방향  HORIZONTAL 가로방향
+        binding.rvProfile.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        binding.rvProfile.setHasFixedSize(true)
+        binding.rvProfile.adapter = ProfileAdapter(profileList)
+```
+
 #챔피언 상세설명 액티비티 
 
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/9e7ce638-7d88-4b89-b587-debe2e055dae" height="350" >
 
 ---
+<메인 액티비티에서 받아온 인텐트에서 값을 꺼내 데이터 보여주기>
+```
+// 챔피언정보 액티비티에서 받아온 인텐트 에 객체정보를 받아 변환
+        val bitmap: Bitmap? = intent.getParcelableExtra("gender")
+        Log.d("이미지값??",bitmap.toString())
+
+        // 챔피언 정보 이미지 값
+       binding.ivProfile2.setImageBitmap(bitmap)
+
+        // 챔피언 정보 이름,라인,스토리 ,
+        binding.tvName2.text = intent.getStringExtra("name")
+        binding.tvLain2.text = intent.getStringExtra("lain")
+        binding.detail.text = intent.getStringExtra("detail")
+
+     // 챔피언 의 아이디값을 인텐트로  받음
+        val id = intent.getStringExtra("id")
+
+        // 인텐트로 받아온 아이디 값으로 챔피언 스킬이미지 api url로 들고오기
+        val url = "https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/"+id+"Q"+".png"
+        Glide.with(this).load(url).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.qimg)
+        val url2 = "https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/"+id+"W"+".png"
+        Glide.with(this).load(url2).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.wimg)
+        val url3 = "https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/"+id+"E"+".png"
+        Glide.with(this).load(url3).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.eimg)
+        val url4 = "https://ddragon.leagueoflegends.com/cdn/13.22.1/img/spell/"+id+"R"+".png"
+        Glide.with(this).load(url4).placeholder(R.drawable.frame).error(R.drawable.error).into(binding.rimg)
+```
+---
+<스레드 이용해서 데이터 가져오기>
+```
+ // 챔피언 스킬 설명 (인덱스 번호로 순서에 맞는 정보 받아오기)
+        binding.qimg.setOnClickListener {
+            binding.skilDetail.text = ""
+            val index1 = 0
+            val thread = NetworkThread(index1)
+            thread.start()
+            thread.join()
+        }
+        binding.wimg.setOnClickListener {
+            val index1 = 1
+            binding.skilDetail.text = ""
+            val thread = NetworkThread(index1)
+            thread.start()
+            thread.join()
+        }
+        binding.eimg.setOnClickListener {
+            val index1 = 2
+            binding.skilDetail.text = ""
+            val thread = NetworkThread(index1)
+            thread.start()
+            thread.join()
+        }
+        binding.rimg.setOnClickListener {
+            val index1 = 3
+            binding.skilDetail.text = ""
+            val thread = NetworkThread(index1)
+            thread.start()
+            thread.join()
+        }
+
+```
+<스레드 코드>
+```
+  inner class NetworkThread(val index1 :Int): Thread(){ // 스레드로 url api 정보 받아오기
+        override fun run() {
+           
+            Log.d("버튼에서 받은값",index1.toString())
+            
+            val id = intent.getStringExtra("id")
+            Log.d("sdasdsad",id.toString())
+
+            // API 정보를 가지고 있는 주소
+            val site = "https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion/"+id+".json"
+            val url = URL(site)
+            val conn = url.openConnection()
+            val input = conn.getInputStream()
+            val isr = InputStreamReader(input)
+            // br: 라인 단위로 데이터를 읽어오기 위해서 만듦
+            val br = BufferedReader(isr)
+            // Json 문서는 일단 문자열로 데이터를 모두 읽어온 후, Json에 관련된 객체를 만들어서 데이터를 가져옴
+            var str: String? = null
+            val buf = StringBuffer()
+            do{
+                str = br.readLine()
+                if(str!=null){ buf.append(str) }
+            }while (str!=null)
+            // 전체가 객체로 묶여있기 때문에 객체형태로 가져옴
+            val root = JSONObject(buf.toString())
+            Log.d("스킬JSON데이터1",root.toString())
+            val response = root.getJSONObject("data").getJSONObject("${id}")
+
+            val data2 = response.getJSONArray("spells")
+            Log.d("스킬JSON데이터1",response.toString())
+            Log.d("스킬JSON데이터2",response.getString("spells"))
+            Log.d("스킬JSON데이터3",response.getString("allytips"))
+            Log.d("스킬JSON데이터4",data2.getString(index1))
+            // 화면에 출력
+            runOnUiThread {
+                // 페이지 수만큼 반복하여 데이터를 불러온다.
+                for(i in 0 until data2.length()){
+
+                    // 쪽수 별로 데이터를 읽는다.
+                    if(index1 == 0){
+                        val jObject = data2.getJSONObject(index1)
+                        binding.skilName.text = "Q ${jObject.getString("name")}"
+                        binding.skilDetail.text = "${jObject.getString("description")}"
+
+                    }else if(index1 == 1 ){
+                        // 쪽수 별로 데이터를 읽는다.
+                        val jObject = data2.getJSONObject(index1)
+                        binding.skilName.text = "W ${jObject.getString("name")}"
+                        binding.skilDetail.text = "${jObject.getString("description")}"
+
+                    }else if(index1 == 2 ){
+                        // 쪽수 별로 데이터를 읽는다.
+                        val jObject = data2.getJSONObject(index1)
+                        binding.skilName.text = "E ${jObject.getString("name")}"
+                        binding.skilDetail.text = "${jObject.getString("description")}"
+
+                    }else if(index1 == 3 ){
+                        // 쪽수 별로 데이터를 읽는다.
+                        val jObject = data2.getJSONObject(index1)
+                        binding.skilName.text = "R ${jObject.getString("name")}"
+                        binding.skilDetail.text = "${jObject.getString("description")}"
+
+                    }
+
+
+                }
+            }
+        }
+        // 함수를 통해 데이터를 불러온다.
+        fun JSON_Parse(obj:JSONObject, data : String): String {
+            // 원하는 정보를 불러와 리턴받고 없는 정보는 캐치하여 "없습니다."로 리턴받는다.
+            return try { obj.getString(data)
+            } catch (e: Exception) {
+                "없습니다."
+            }
+        }
+    }
+```
+
 
 #네비게이션에 연결된 액티비티 
 
