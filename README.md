@@ -239,8 +239,11 @@
 ---
 
 #소환사 정보 
+
 <img src="https://github.com/JeongYoun-24/LoL_And/assets/126854252/55aad62f-a97a-4f0f-9cf1-e2b6cb22ecfc" height="350" >
+
 <WEBView를 이용해서 화면에 보여주기>
+
 ```
 // 자바 스크립트 허용
         binding.webView.settings.javaScriptEnabled = true
@@ -275,6 +278,7 @@
 ---
 
 #리사이클 뷰 어댑터 코드 
+
 ```
 class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapter<ProfileAdapter.CustemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustemViewHolder {
@@ -324,7 +328,7 @@ class ProfileAdapter(val profileList : ArrayList<Profiles>) : RecyclerView.Adapt
 class Profiles (val gender : Int, val name : String,val id : String, val lain :String, val detail : String)
 ```
 챔피언 정보 api URI
-<a href="https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion.json">
+<"https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion.json">
 
 
 
