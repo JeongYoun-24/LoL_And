@@ -330,6 +330,17 @@ class Profiles (val gender : Int, val name : String,val id : String, val lain :S
 챔피언 정보 api URI
 [<https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion.json>](https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion.json)https://ddragon.leagueoflegends.com/cdn/13.22.1/data/ko_KR/champion.json
 
+#사용 API 사이트 
+[https://developer.riotgames.com/apis](https://developer.riotgames.com/apis)https://developer.riotgames.com/apis
 
 
+
+# 프로젝트를 통해 느낀 점과 소감
+
+처음으로 코틀린을 이용하여 안드로이드 앱을 만들었습니다. <br>
+코틀린 언어를 이용해서 만들어 새로운 경험을 했습니다.<br> 
+라이엇 API를 이용하여 앱을 만들었지만 라이엇 API가 많은 정보와 잦은 업데이트로 오류가 많이 떴습니다.<br>
+JSON데이터를 받아오는 과정에서 요청시간과 초당 받을수있는 데이터 횟수가 정해져 있어 스레드를 이용해서 시간을 정해 받아왔습니다.<br>
+안드로이드 만들면서 웹개발과 많이 다른 점이 좋은 경험을 했다 생각합니다.     <br>
+그래서 다음에 만들때는 좀더 정교하고 API데이터를 활용하여 더욱더 완성도를 높인 프로젝트를 만들수있을것같습니다.<br>
 
