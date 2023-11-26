@@ -30,8 +30,6 @@ class ItemAadpter(val profileList : ArrayList<ItemListData>) : RecyclerView.Adap
                 val profile : ItemListData = profileList.get(curPos) // 객체형태로 전달
 
 
-
-//                Toast.makeText(parent.context,"이름 : ${profile.name} \n 역활군 : ${profile.id} \n 스토리 : ${profile.cooldown} " , Toast.LENGTH_LONG).show()
             }
 
         }
